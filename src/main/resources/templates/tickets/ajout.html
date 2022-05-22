@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+
+<head>
+	<title>Ajout d'un ticket</title>
+</head>
+
+<body>
+	<section layout:fragment="contenu">
+		<form th:action="@{/mvctickets/add}" th:object="${ticket}" method="post">
+			<div class="form-group"> Id: <input class="form-control" readonly type="text" name="id"
+					th:field="*{id}" /></div>
+			<div class="form-group"> dateOuverture: <input class="form-control" type="date" id="dateOuverture"
+					name="description" th:field="*{dateOuverture}" /></div>
+			<div class="form-group"> dateCloture: <input class="form-control" type="date" id="dateCloture"
+					name="description" th:field="*{dateCloture}" /></div>
+			<div class="form-group"> statut: <input class="form-control" type="text" id="statut"
+					name="description" th:field="*{statut}" /></div>
+			<div class="form-group"> urgence: <input class="form-control" type="text" id="urgence"
+					name="description" th:field="*{urgence}" /></div>
+			<div class="form-group"> Description: <input class="form-control" type="text" id="description"
+					name="description" th:field="*{description}" /></div>
+			<div class="form-group"> environement: <input class="form-control" type="text" id="environement"
+					name="description" th:field="*{environement}" /></div>
+			<div class="form-group"> logiciel: <input class="form-control" type="text" id="logiciel"
+					name="logiciel" th:field="*{logiciel}" /></div>
+			<div class="form-group"> user: <input class="form-control" type="text" id="user"
+					name="user" th:field="*{user}" /></div>
+			<div class="form-group"> developpeur: <input class="form-control" type="text" id="developpeur"
+					name="developpeur" th:field="*{developpeur}" /></div>
+			<div><button class="btn btn-primary" type="submit">Enregistrer</button></div>
+		</form>
+	</section>
+
+
+</body>
+
+</html>

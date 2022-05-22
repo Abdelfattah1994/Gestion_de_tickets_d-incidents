@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout/default}">
+
+<head>
+
+	<title>Les tickets</title>
+</head>
+
+<body>
+	<section layout:fragment="contenu">
+	<h1>Les tickets</h1>
+	<div> <a th:href="@{/mvctickets/add}" class="btn btn-primary">Ajouter</a> </div>
+	<table class="table">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">dateOuverture</th>
+				<th scope="col">dateCloture</th>
+				<th scope="col">statut</th>
+				<th scope="col">urgence</th>
+				<th scope="col">Description</th>
+				<th scope="col">environement</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="t:${tickets}">
+				<th scope="row" th:text="${t.id}">1d</th>
+				<td th:text="${t.dateOuverture}">dateOuverture</td>
+				<td th:text="${t.dateCloture}">dateCloture</td>
+				<td th:text="${t.statut}">statut</td>
+				<td th:text="${t.urgence}">urgence</td>
+				<td th:text="${t.description}">description</td>
+				<td th:text="${t.environement}">environement</td>
+				<td> <a th:href="@{/mvctickets/edit/{id}(id=${t.id})}" class="btn btn-success" />Editer
+				</td>
+				<td> <a th:href="@{/mvctickets/delete/{id}(id=${t.id})}" class="btn btn-danger" />Supprimer</td>
+			</tr>
+
+
+		</tbody>
+	</table>
+
+</section>
+</body>
+
+</html>
